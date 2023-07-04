@@ -4,13 +4,15 @@ const { hashPassword, comparePassword } = require("../helpers/auth");
 const jwt = require("jsonwebtoken");
 const nanoid = require("nanoid");
 const expressJwt = require("express-jwt");
+const path = require('path');
+const dotenv = require('dotenv');
+
+
 
 // sendgrid
 require("dotenv").config();
 const sgMail = require("@sendgrid/mail");
-sgMail.setApiKey(process.env.SENDGRID_KEY);
-
-console.log(process.env.SENDGRID_KEY)
+sgMail.setApiKey("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");
 
 // middleware
 exports.requireSignin = expressJwt({
