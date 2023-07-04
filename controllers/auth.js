@@ -1,4 +1,3 @@
-require("dotenv").config();
 const User = require("../models/user");
 const Link = require("../models/link");
 const { hashPassword, comparePassword } = require("../helpers/auth");
@@ -7,8 +6,9 @@ const nanoid = require("nanoid");
 const expressJwt = require("express-jwt");
 
 // sendgrid
+require("dotenv").config();
 const sgMail = require("@sendgrid/mail");
-sgMail.setApiKey(process.env.SENDGRID_KEY);
+const key= sgMail.setApiKey(process.env.SENDGRID_KEY);
 
 // middleware
 exports.requireSignin = expressJwt({
@@ -17,7 +17,9 @@ exports.requireSignin = expressJwt({
 });
 
 exports.signup = async (req, res) => {
+  console.log(SENDGRID_KEY)
   console.log("HIT SIGNUP");
+  
   try {
     // validation
     const { name, email, password } = req.body;
