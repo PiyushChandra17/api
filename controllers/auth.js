@@ -9,11 +9,11 @@ const dotenv = require('dotenv');
 
 
 // sendgrid
-dotenv.config({ path: '../.env' })
-const sgMail = require("@sendgrid/mail");
-sgMail.setApiKey(process.env.SENDGRID_KEY);
+// dotenv.config({ path: '../.env' })
+// const sgMail = require("@sendgrid/mail");
+// sgMail.setApiKey(process.env.SENDGRID_KEY);
 
-console.log(process.env.SENDGRID_KEY)
+// console.log(process.env.SENDGRID_KEY)
 
 
 // middleware
