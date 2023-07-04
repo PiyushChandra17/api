@@ -8,7 +8,9 @@ const expressJwt = require("express-jwt");
 // sendgrid
 require("dotenv").config();
 const sgMail = require("@sendgrid/mail");
-const key= sgMail.setApiKey(process.env.SENDGRID_KEY);
+sgMail.setApiKey(process.env.SENDGRID_KEY);
+
+console.log(process.env.SENDGRID_KEY)
 
 // middleware
 exports.requireSignin = expressJwt({
