@@ -9,9 +9,11 @@ const dotenv = require('dotenv');
 
 
 // sendgrid
-require("dotenv").config();
+dotenv.config({ path: '../.env' })
 const sgMail = require("@sendgrid/mail");
-sgMail.setApiKey('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');
+sgMail.setApiKey(process.env.SENDGRID_KEY);
+
+console.log(process.env.SENDGRID_KEY)
 
 
 // middleware
@@ -21,7 +23,6 @@ exports.requireSignin = expressJwt({
 });
 
 exports.signup = async (req, res) => {
-  console.log(SENDGRID_KEY)
   console.log("HIT SIGNUP");
   
   try {
